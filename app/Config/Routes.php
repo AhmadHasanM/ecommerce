@@ -12,6 +12,14 @@ $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::login');
 $routes->get('logout', 'AuthController::logout');
 
+// Google OAuth
+$routes->get('auth/google', 'OAuthController::redirectGoogle');
+$routes->get('auth/google/callback', 'OAuthController::callbackGoogle');
+
+// Facebook OAuth
+$routes->get('auth/facebook', 'OAuthController::redirectFacebook');
+$routes->get('auth/facebook/callback', 'OAuthController::callbackFacebook');
+
 $routes->group('produk', ['filter' => 'auth'], function ($routes) { 
     $routes->get('', 'ProdukController::index');
     $routes->post('', 'ProdukController::create');
@@ -49,3 +57,10 @@ $routes->resource('api', ['controller' => 'ApiController']);
 $routes->get('laporan/pendapatan', 'LaporanController::pendapatan', ['filter' => 'auth']);
 $routes->get('laporan/exportPdf', 'LaporanController::exportPdf', ['filter' => 'auth']);
 $routes->get('laporan/exportExcel', 'LaporanController::exportExcel', ['filter' => 'auth']);
+$routes->get('laporan/produk-terlaris', 'LaporanController::produkTerlaris', ['filter' => 'auth']);
+$routes->get('laporan/piutang', 'LaporanController::piutang', ['filter' => 'auth']);
+$routes->post('laporan/piutang/bayar/(:any)', 'LaporanController::bayarPiutang/$1', ['filter' => 'auth']);
+$routes->get('laporan/arus-kas', 'LaporanController::arusKas', ['filter' => 'auth']);
+$routes->post('laporan/beban/tambah', 'LaporanController::tambahBeban', ['filter' => 'auth']);
+$routes->get('laporan/beban/hapus/(:any)', 'LaporanController::hapusBeban/$1', ['filter' => 'auth']);
+$routes->get('laporan/laba-rugi', 'LaporanController::labaRugi', ['filter' => 'auth']);

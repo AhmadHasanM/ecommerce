@@ -69,9 +69,9 @@ if(uri_string()!=""){
           <div class="card">
             <div class="card-body">
             <div class="card-body">
-  <h5 class="card-title"><?php echo $hlm?></h5>
-  <?= $this->renderSection('content') ?>
-</div>
+              <h5 class="card-title"><?php echo $hlm?></h5>
+              <?= $this->renderSection('content') ?>
+            </div>
             </div>
           </div>
 
@@ -81,12 +81,12 @@ if(uri_string()!=""){
 
   </main><!-- End #main -->
 
-  <?= $this->include('components/footer') ?>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<?= $this->include('components/footer') ?>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url()?>NiceAdmin/assets/js/main.js"></script>
+<!-- Vendor JS Files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url()?>NiceAdmin/assets/js/main.js"></script>
 <!-- jQuery --> 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <!-- Select2 --> 

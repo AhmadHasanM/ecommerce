@@ -43,6 +43,34 @@
                 <span>Laporan Pendapatan</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link <?= (uri_string() == 'laporan/produk-terlaris') ? '' : 'collapsed' ?>" href="<?= base_url('laporan/produk-terlaris') ?>">
+                <i class="bi bi-trophy"></i>
+                <span>Produk Terlaris</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link <?= (uri_string() == 'laporan/piutang') ? '' : 'collapsed' ?>" href="<?= base_url('laporan/piutang') ?>">
+                <i class="bi bi-cash-coin"></i>
+                <span>Piutang Pelanggan</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link <?= (uri_string() == 'laporan/arus-kas') ? '' : 'collapsed' ?>" href="<?= base_url('laporan/arus-kas') ?>">
+                <i class="bi bi-arrow-left-right"></i>
+                <span>Arus Kas</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link <?= (uri_string() == 'laporan/laba-rugi') ? '' : 'collapsed' ?>" href="<?= base_url('laporan/laba-rugi') ?>">
+                <i class="bi bi-graph-up-arrow"></i>
+                <span>Laba Rugi</span>
+            </a>
+        </li>
         <?php } ?>
 
         <li class="nav-item">

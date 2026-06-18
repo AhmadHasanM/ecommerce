@@ -82,30 +82,22 @@ public function delete($id)
 }
 public function download()
 {
-    // Ambil data produk dari database
     $products = $this->productModel->findAll();
 
-    // Render view menjadi HTML
-    $html = view('produk/download_pdf', [
+    $html = view('produk/download_produk', [
         'products' => $products
     ]);
 
-    // Nama file PDF
     $filename = date('Y-m-d-H-i-s') . '-produk.pdf';
 
-    // Inisialisasi Dompdf
     $dompdf = new Dompdf();
 
-    // Load HTML ke Dompdf
     $dompdf->loadHtml($html);
 
-    // Setting ukuran kertas dan orientasi
     $dompdf->setPaper('A4', 'portrait');
 
-    // Generate PDF
     $dompdf->render();
 
-    // Download / tampilkan PDF
     $dompdf->stream($filename, [
         'Attachment' => true
     ]);
