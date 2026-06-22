@@ -18,7 +18,7 @@
         <?php
         if (session()->get('role') == 'admin') {
         ?>
-        
+
         <li class="nav-item">
             <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="<?= base_url('produk') ?>">
                 <i class="bi bi-receipt"></i>
@@ -69,6 +69,13 @@
             <a class="nav-link <?= (uri_string() == 'laporan/laba-rugi') ? '' : 'collapsed' ?>" href="<?= base_url('laporan/laba-rugi') ?>">
                 <i class="bi bi-graph-up-arrow"></i>
                 <span>Laba Rugi</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link <?= (strpos(uri_string(), 'dashboard') === 0) ? '' : 'collapsed' ?>" href="<?= base_url('/dashboard') ?>">
+                <i class="bi bi-speedometer2"></i>
+                <span>Dashboard</span>
             </a>
         </li>
         <?php } ?>

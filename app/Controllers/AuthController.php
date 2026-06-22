@@ -29,8 +29,7 @@ class AuthController extends BaseController
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
 
-
-        $dataUser = $this->userModel ->where(['username' => $username])->first();
+        $dataUser = $this->userModel->where(['username' => $username])->first();
 
         if ($dataUser) {
 	        if (password_verify($password, $dataUser['password'])) {
@@ -64,16 +63,13 @@ class AuthController extends BaseController
 
                 return redirect()->to(base_url('/'));
             } else {
-                session()->setFlashdata('failed', 'Username & Password Salah');
-                return redirect()->back();
+                return redirect()->to('login')->with('failed', 'Username & Password Salah');
             }
         } else {
-            session()->setFlashdata('failed', 'Username Tidak Ditemukan');
-            return redirect()->back();
+            return redirect()->to('login')->with('failed', 'Username Tidak Ditemukan');
         }
     } else {
-        session()->setFlashdata('failed', $this->validator->listErrors());
-        return redirect()->back();
+        return redirect()->to('login')->with('failed', 'Username & Password Salah');
     }
     } else {
         return view('v_login');
